@@ -1,14 +1,17 @@
 <?php
+
 session_start();
 include "server.php";
+
 if (isset($_GET['detail'])) {
 $detail_id = $_GET['detail'];
 
 $query = "SELECT * FROM users WHERE id = $detail_id ";
-$return_value = mysqli_query($db, $query);
+$return_value = mysqli_query($link, $query);
 
 $details = mysqli_fetch_all($return_value, MYSQLI_ASSOC);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

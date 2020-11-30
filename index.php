@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include "server.php";
+    require_once "server.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +16,7 @@
     <div class="inserts">
         <h1>Reservation Form</h1>
         <form action="" method="post">
+            <label for="username"></label>
             <input type="text" name="username"  placeholder=" Input Username " required=""><br>
             <input type="email" name="email"  placeholder=" Input email "   required=""><br>
             <input type="text" name="party"  placeholder=" Input Party Size "   required=""><br>
@@ -36,7 +37,7 @@
 
             <?php
             $query = "SELECT * FROM users";
-            $return = mysqli_query($db, $query);
+            $return = mysqli_query($link, $query);
 
             if($return){
                 if (mysqli_num_rows($return) > 0) {
